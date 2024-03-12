@@ -19,7 +19,7 @@ This project provides a service for searching logs stored in a Google Cloud Stor
 ## Usage
 
 1. Start the application: `java -jar search-logs-service.jar`
-2. Make a POST request to the `/search-logs` endpoint with the following parameters:
+2. Make a GET request to the `/search-logs` endpoint with the following parameters:
    - `logsFrom`: The start timestamp of the logs to search.
    - `logsTo`: The end timestamp of the logs to search.
    - `searchKeyword`: The keyword to search for in the logs.
@@ -44,7 +44,7 @@ Contributions are welcome! Please follow the [contribution guidelines](CONTRIBUT
 This project is not licensed.
 
 ## Sample curl
-curl --location 'http://localhost:8080/v1/search-logs' \
+curl --location --request GET 'http://localhost:8080/v1/search-logs' \
 --header 'Content-Type: application/json' \
 --data '{
     "searchKeyword":"hellof",
