@@ -3,7 +3,7 @@ package com.logs.search_logs.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -23,7 +23,7 @@ public class SearchLogsController {
     @Autowired
     SearchLogsService searchLogsService;
 
-    @PostMapping(value = { "/search-logs" })
+    @GetMapping(value = { "/search-logs" })
 	public ResponseEntity<Object> searchLogs(HttpServletRequest request,@RequestBody SearchLogsRequestDTO searchLogsRequestDTO) {
 		log.info("Inside searchLogs with request: {}",searchLogsRequestDTO);
         ResponseDTO searchResponse= searchLogsService.searchLogs(request,searchLogsRequestDTO);
